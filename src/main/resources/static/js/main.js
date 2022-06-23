@@ -11,24 +11,26 @@ var messageApi = Vue.resource('/all-talk/message{/id}')
 
 Vue.component('message-form', {
     props: ['messages', 'messageAttr'],
-    data: function () {
+    data: function() {
         return {
             text: '',
             id: ''
         }
     },
     watch: {
-        messageAttr: function (newVal, oldVal) {
+        messageAttr: function(newVal, oldVal) {
             this.text = newVal.text;
             this.id = newVal.id;
         }
     },
-    template: '<div><input type="text" placeholder="Write something" v-model="text"/>' +
-        '<input type="button" value="Save" @click="save"/></div>',
-
+    template:
+        '<div>' +
+        '<input type="text" placeholder="Write something" v-model="text" />' +
+        '<input type="button" value="Save" @click="save" />' +
+        '</div>',
     methods: {
-        save: function () {
-            var message = {text: this.text};
+        save: function() {
+            var message = { text: this.text };
 
             if (this.id) {
                 messageApi.update({id: this.id}, message).then(result =>
@@ -37,12 +39,13 @@ Vue.component('message-form', {
                         this.messages.splice(index, 1, data);
                         this.text = '';
                         this.id = '';
-                    }))
+                    })
+                )
             } else {
                 messageApi.save({}, message).then(result =>
                     result.json().then(data => {
                         this.messages.push(data);
-                        this.text = '';
+                        this.text = ''
                     })
                 )
             }
