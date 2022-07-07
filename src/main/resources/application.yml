@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/alltalk
+    username: alltalk_user
+    password: alltalk4682
+
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non-contextual-creation: true
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 915959607181-4t2ols8943b0ktsk0lccuguqcgutfr5j.apps.googleusercontent.com
+            client-secret: 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

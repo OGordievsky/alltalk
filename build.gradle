@@ -17,11 +17,11 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
 	implementation('org.postgresql:postgresql')
 	implementation('org.projectlombok:lombok')
-//	implementation('javax.xml.bind:jaxb-api')
-//	implementation('com.sun.xml.bind:jaxb-core')
-//	implementation('com.sun.xml.bind:jaxb-impl')
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {
